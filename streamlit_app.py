@@ -15,9 +15,13 @@ else:
   st.write(df[:num_row])
   
 num_col=df.select_dtypes(include='number').columns.to_list()
-x_axis=st.selectbox('choose x axis',num_col)
-y_axis=st.selectbox('choose y axis',num_col)
-color=st.selectbox('choose color',num_col)
-fig=px.scatter(df,x=x_axis,y=y_axis,%colors=color) 
+col1,col2,col3=st.columns(3)
+with col1:
+  x_axis=st.selectbox('choose x axis',num_col)
+with col2:
+  y_axis=st.selectbox('choose y axis',num_col)
+with col3:
+  color=st.selectbox('choose color',num_col)
+fig=px.scatter(df,x=x_axis,y=y_axis,color=color) 
 st.plotly_chart(fig)
 

@@ -18,5 +18,5 @@ num_col=df.select_dtypes(include='number').columns.to_list()
 x_axis=st.selectbox('choose x axis',num_col)
 y_axis=st.selectbox('choose y axis',num_col)
 fig=px.scatter(df,x=x_axis,y=y_axis) 
-st.plotly_chart(fig
+st.plotly_chart(fig)
 

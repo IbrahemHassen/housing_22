@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd 
+import plotly.epress as px
 st.header('file upload app 2')
 file= st.file_uploader('choose a file',type=['csv','xlsx'])
 if file is not None:
@@ -25,6 +26,6 @@ with col3:
   color = st.selectbox('choose color',df.columns.to_list())
 
 
-fig = px.scatter(df,x=x_col,y=y_col)
+fig = px.scatter(df,x=x_col,y=y_col,color=color)
 st.plotly_chart(fig)
 

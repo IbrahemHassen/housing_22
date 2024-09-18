@@ -17,17 +17,23 @@ else:
   
 num_col = df.select_dtypes(include='number').columns.to_list()
 
-col1,col2,col3 = st.columns(3)
-with col1:
- x_col = st.selectbox('choose x column',num_col)
-with col2:
-  y_col = st.selectbox('choose y column',num_col)
-with col3:
-  color = st.selectbox('choose color',df.columns.to_list())
-
-
-fig = px.scatter(df,x=x_col,y=y_col,color=color)
+tab1,tab2=st.tabs(['scatter','histogram'])
+with tab1:
+  col1,col2,col3=st.columns(3)
+  with col1:
+    x_axis=st.selectbox('choose x axis',num_col)
+  with col2:
+    y_axis=st.selectbox('choose y axis',num_col)
+  with col3:
+    color=st.selectbox('choose color',num_col)
+fig=px.scatter(df,x=x_axis,y=y_axis,color=color) 
 st.plotly_chart(fig)
-x=st.selectbox('choose x axis',num_col)
-fig=px.histogram(df,x=x)
-st.plotly_chart(fig2)
+x_axis=st.selectbox('choose x axis',num_col)
+y_axis=st.selectbox('choose y axis',num_col)
+color=st.selectbox('choose color',num_col)
+fig=px.scatter(df,x=x_axis,y=y_axis,colors=color) 
+st.plotly_chart(fig)
+with tab2:
+  x=st.selectbox('choose x axis',num_col)
+  fig=px.histogram(df,x=x)
+  st.plotly_chart(fig2)

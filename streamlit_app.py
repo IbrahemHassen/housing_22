@@ -14,8 +14,8 @@ if name_column:
   st.write(df[:num_row][name_column])
 else:
   st.write(df[:num_row])
-  
-num_col = df.select_dtypes(include='number').columns.to_list()
+
+num_col=df.select_dtypes(include='number').columns.to_list()
 
 tab1,tab2=st.tabs(['scatter','histogram'])
 with tab1:
@@ -26,7 +26,8 @@ with tab1:
     y_axis=st.selectbox('choose y axis',num_col)
   with col3:
     color=st.selectbox('choose color',num_col)
-
+fig=px.scatter(df,x=x_axis,y=y_axis,color=color) 
+st.plotly_chart(fig)
 x_axis=st.selectbox('choose x axis',num_col)
 y_axis=st.selectbox('choose y axis',num_col)
 color=st.selectbox('choose color',num_col)

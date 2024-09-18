@@ -25,6 +25,6 @@ with col3:
   color = st.selectbox('choose color',df.columns.to_list())
 
 
-fig = px.scatter(df,x=x_col,y=y_col,color=color)
+fig = px.scatter(df,x=x_col,y=y_col)
 st.plotly_chart(fig)
 

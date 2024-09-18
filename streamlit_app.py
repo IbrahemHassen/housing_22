@@ -5,3 +5,6 @@ file= st.file_uploader('choose a file',type=['csv','xlsx'])
 if file is not None:
   df= pd.read_csv(file)
   st.write(df)
+
+num_row=st.slider('chosse num rows',min_value=0,max_value=len(df),step=1)
+st.write(df[:num_row])

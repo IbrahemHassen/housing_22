@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd 
 import plotly.express as px
-
 st.header('file upload app 2')
 file= st.file_uploader('choose a file',type=['csv','xlsx'])
 if file is not None:
